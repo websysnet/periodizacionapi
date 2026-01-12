@@ -63,6 +63,14 @@ app.MapGet("/entrenadores", () =>
 
 }).WithName("GetEntrenadores");
 
+app.MapGet("/atletas", () =>
+{
+    var atletasRepository = new periodizacionapi.Infraestructure.AtletasRepository();
+    var atletasService = new periodizacionapi.Services.AtletasServices(atletasRepository);
+    var atletas = atletasService.GetAtletas();
+    return Results.Ok(atletas);
+}).WithName("GetAtletas");  
+
 app.Run();
 
 
