@@ -1,4 +1,6 @@
-﻿namespace periodizacionapi.Domain
+﻿using periodizacionapi.Domain;
+
+namespace periodizacionapi.Infraestructure
 {
     public interface IDeportes
     {

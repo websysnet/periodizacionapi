@@ -1,7 +1,8 @@
 ﻿namespace periodizacionapi.Infraestructure
 {
     using periodizacionapi.Domain;
-    public class DeportesRepositories : IDeportes
+
+    public class DeportesRepository : IDeportes
     {
         private readonly List<Deporte> deportes = new List<Deporte>
         {
