@@ -1,0 +1,6 @@
+@periodizacionapi_HostAddress = http://localhost:5091
+
+GET {{periodizacionapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
