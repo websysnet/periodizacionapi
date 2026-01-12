@@ -22,12 +22,10 @@ app.MapGet("/health", () => Results.Ok(new { status = "Healthy" })).WithName("He
 
 app.MapGet("/deportes", () =>
 {
-    var deportes = new List<Deporte>
-    {
-        new Deporte { Id = 1, Nombre = "Fútbol", Descripcion = "Deporte de equipo jugado con una pelota.", Categoria = "Deporte de equipo", ImagenUrl = "https://example.com/futbol.jpg" },
-        new Deporte { Id = 2, Nombre = "Baloncesto", Descripcion = "Deporte de equipo jugado con una pelota y una canasta.", Categoria = "Deporte de equipo", ImagenUrl = "https://example.com/baloncesto.jpg" },
-        new Deporte { Id = 3, Nombre = "Natación", Descripcion = "Deporte acuático que consiste en nadar.", Categoria = "Deporte individual", ImagenUrl = "https://example.com/natacion.jpg" }
-    };
+    var deportesRepository = new periodizacionapi.Infraestructure.DeportesRepositories();
+    var deportesService = new periodizacionapi.Services.DeportesService(deportesRepository);
+
+    var deportes = deportesService.GetAllDeportes();
     return Results.Ok(deportes);
 
 }).WithName("GetDeportes");
