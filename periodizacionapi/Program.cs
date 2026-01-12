@@ -33,6 +33,26 @@ app.MapGet("/deportes", () =>
 
 }).WithName("GetDeportes");
 
+app.MapGet("/deporte/{id}", (int id) =>
+{
+    var deportesRepository = new periodizacionapi.Infraestructure.DeportesRepository();
+    var deportesService = new periodizacionapi.Services.DeportesService(deportesRepository);
+    var deporte = deportesService.GetDeporteById(id);
+
+    return deporte;
+
+}).WithName("GetDeporteById");      
+
+app.MapGet("/entrenador/{id}", (int id) =>
+{
+    var entrenadoresRepository = new periodizacionapi.Infraestructure.EntrenadoresRepository();
+    var entrenadoresService = new periodizacionapi.Services.EntrenadoresService(entrenadoresRepository);
+    var entrenador = entrenadoresService.GetEntrenadorById(id);
+
+    return entrenador;
+
+}).WithName("GetEntrenadorById");
+
 app.MapGet("/entrenadores", () =>
 {
     var entrenadoresRepository = new periodizacionapi.Infraestructure.EntrenadoresRepository();
