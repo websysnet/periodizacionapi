@@ -13,7 +13,7 @@
         {
             return _atletaRepository.GetAtletas();
         }
-        public Atleta GetAtletaById(int id)
+        public Atleta? GetAtletaById(int id)
         {
             return _atletaRepository.GetAtletaById(id);
         }
